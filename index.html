@@ -19,7 +19,7 @@
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.10) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -29,13 +29,13 @@
       right: -100px;
       width: 70%;
       max-width: 800px;
-      opacity: 0.12;
+      opacity: 0.10;
       pointer-events: none;
       z-index: 0;
       object-fit: contain;
     }
     @media (min-width: 768px) { .bg-logo { right: -150px; width: 50%; } }
-    @media (min-width: 1024px) { .bg-logo { right: -200px; width: 40%; opacity: 0.08; } }
+    @media (min-width: 1024px) { .bg-logo { right: -200px; width: 40%; opacity: 0.06; } }
     .content-wrapper { position: relative; z-index: 1; }
 
     /* header – same curved glass as index */
@@ -166,6 +166,65 @@
       text-decoration: none;
     }
     .back-btn:hover { background: rgba(255,255,255,0.25); transform: scale(1.02); }
+
+    /* ----- HERO IMAGE (full width, Vatican) ----- */
+    .hero-vatican {
+      width: 100%;
+      height: 280px;
+      background: url('https://images.unsplash.com/photo-1546456073-92b9f0a8d413?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+    }
+    /* dark overlay for readability */
+    .hero-vatican::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 70%, transparent 100%);
+      border-radius: 0 0 40px 40px;
+      pointer-events: none;
+    }
+    .hero-vatican .hero-text {
+      position: relative;
+      z-index: 2;
+      color: white;
+      max-width: 600px;
+    }
+    .hero-vatican .hero-text .flag {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 0.2rem;
+      line-height: 1;
+    }
+    .hero-vatican .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      line-height: 1.1;
+    }
+    .hero-vatican .hero-text p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .hero-vatican { height: 200px; padding: 0 1rem; }
+      .hero-vatican .hero-text h1 { font-size: 2.2rem; }
+      .hero-vatican .hero-text .flag { font-size: 2rem; }
+      .hero-vatican .hero-text p { font-size: 0.9rem; }
+    }
+    @media (min-width: 1024px) {
+      .hero-vatican { height: 340px; }
+      .hero-vatican .hero-text h1 { font-size: 4.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -212,111 +271,123 @@
   <div id="menuOverlay" class="menu-overlay"></div>
 
   <!-- ===== MAIN CONTENT ===== -->
-  <main class="content-wrapper pt-28 md:pt-32 pb-16 px-5 md:px-8 max-w-6xl mx-auto">
+  <main class="content-wrapper pt-24 md:pt-28 pb-16">
 
-    <!-- page header -->
-    <div class="fade-up mb-10 text-center">
-      <span class="bg-white/20 text-white text-sm px-5 py-1.5 rounded-full font-semibold backdrop-blur-sm inline-block mb-3">
-        <i class="fas fa-book-open mr-1"></i> Catholic Resources
-      </span>
-      <h1 class="text-4xl md:text-5xl font-bold text-white">Grow in Faith &amp; Knowledge</h1>
-      <p class="text-amber-50 text-lg max-w-2xl mx-auto mt-2">Scripture, Catechism, Apologetics &amp; Catholic News — curated for you.</p>
-      <a href="index.html" class="back-btn mt-5 inline-flex"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <!-- ===== HERO IMAGE – VATICAN (full width) ===== -->
+    <div class="hero-vatican w-full">
+      <div class="hero-text">
+        <span class="flag">🇻🇦</span>
+        <h1>CATHOLIC RESOURCES</h1>
+        <p>Sacred Scripture · Catechism · Apologetics · Catholic News</p>
+      </div>
     </div>
 
     <!-- ===== RESOURCES GRID ===== -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 mt-10">
 
-      <!-- 1. Sacred Scripture -->
-      <div class="fade-up resource-card">
-        <div class="icon-wrap"><i class="fas fa-bible"></i></div>
-        <h3>Sacred Scripture</h3>
-        <p>Deepen your love for God's Word with these faithful companions.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
-          <li class="flex items-start gap-2"><i class="fas fa-play-circle text-orange-500 mt-0.5"></i> <a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank" class="text-orange-600 hover:underline font-medium">Bible in a Year (English) – Fr. Mike</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-play-circle text-orange-500 mt-0.5"></i> <a href="http://www.youtube.com/@biy-malayalam" target="_blank" class="text-orange-600 hover:underline font-medium">Bible in a Year (Malayalam) – Fr. Daniel</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-globe text-orange-500 mt-0.5"></i> <a href="https://www.agapebiblestudy.com" target="_blank" class="text-orange-600 hover:underline font-medium">Agape Bible Study</a></li>
-        </ul>
-        <a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank">Explore Scripture <i class="fas fa-arrow-right"></i></a>
+      <!-- sub header with back button -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-8 fade-up">
+        <div>
+          <span class="bg-white/20 text-white text-sm px-5 py-1.5 rounded-full font-semibold backdrop-blur-sm inline-block">
+            <i class="fas fa-book-open mr-1"></i> Grow in Faith &amp; Knowledge
+          </span>
+        </div>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
       </div>
 
-      <!-- 2. Catechism -->
-      <div class="fade-up resource-card">
-        <div class="icon-wrap"><i class="fas fa-church"></i></div>
-        <h3>Catechism of the Church</h3>
-        <p>Know the faith deeply. The Catechism in a Year and the full online text.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
-          <li class="flex items-start gap-2"><i class="fas fa-book text-orange-500 mt-0.5"></i> <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank" class="text-orange-600 hover:underline font-medium">CCC Online (USCCB)</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-headphones text-orange-500 mt-0.5"></i> <a href="https://ascensionpress.com/pages/catechisminayear" target="_blank" class="text-orange-600 hover:underline font-medium">Catechism in a Year – Fr. Mike</a></li>
-        </ul>
-        <a href="https://ascensionpress.com/pages/catechisminayear" target="_blank">Dive into the Catechism <i class="fas fa-arrow-right"></i></a>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+        <!-- 1. Sacred Scripture -->
+        <div class="fade-up resource-card">
+          <div class="icon-wrap"><i class="fas fa-bible"></i></div>
+          <h3>Sacred Scripture</h3>
+          <p>Deepen your love for God's Word with these faithful companions.</p>
+          <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
+            <li class="flex items-start gap-2"><i class="fas fa-play-circle text-orange-500 mt-0.5"></i> <a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank" class="text-orange-600 hover:underline font-medium">Bible in a Year (English) – Fr. Mike</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-play-circle text-orange-500 mt-0.5"></i> <a href="http://www.youtube.com/@biy-malayalam" target="_blank" class="text-orange-600 hover:underline font-medium">Bible in a Year (Malayalam) – Fr. Daniel</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-globe text-orange-500 mt-0.5"></i> <a href="https://www.agapebiblestudy.com" target="_blank" class="text-orange-600 hover:underline font-medium">Agape Bible Study</a></li>
+          </ul>
+          <a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank">Explore Scripture <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 2. Catechism -->
+        <div class="fade-up resource-card">
+          <div class="icon-wrap"><i class="fas fa-church"></i></div>
+          <h3>Catechism of the Church</h3>
+          <p>Know the faith deeply. The Catechism in a Year and the full online text.</p>
+          <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
+            <li class="flex items-start gap-2"><i class="fas fa-book text-orange-500 mt-0.5"></i> <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank" class="text-orange-600 hover:underline font-medium">CCC Online (USCCB)</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-headphones text-orange-500 mt-0.5"></i> <a href="https://ascensionpress.com/pages/catechisminayear" target="_blank" class="text-orange-600 hover:underline font-medium">Catechism in a Year – Fr. Mike</a></li>
+          </ul>
+          <a href="https://ascensionpress.com/pages/catechisminayear" target="_blank">Dive into the Catechism <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 3. Apologetics & Fathers -->
+        <div class="fade-up resource-card">
+          <div class="icon-wrap"><i class="fas fa-shield-alt"></i></div>
+          <h3>Apologetics &amp; Fathers</h3>
+          <p>Defend the faith and discover the wisdom of the early Church.</p>
+          <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
+            <li class="flex items-start gap-2"><i class="fas fa-comment-dots text-orange-500 mt-0.5"></i> <a href="https://www.catholic.com" target="_blank" class="text-orange-600 hover:underline font-medium">Catholic Answers</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-scroll text-orange-500 mt-0.5"></i> <a href="https://www.newadvent.org/fathers/" target="_blank" class="text-orange-600 hover:underline font-medium">Church Fathers (New Advent)</a></li>
+          </ul>
+          <a href="https://www.catholic.com" target="_blank">Learn Apologetics <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 4. Catholic News -->
+        <div class="fade-up resource-card">
+          <div class="icon-wrap"><i class="fas fa-newspaper"></i></div>
+          <h3>Catholic News</h3>
+          <p>Stay informed with trusted Catholic journalism from around the world.</p>
+          <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
+            <li class="flex items-start gap-2"><i class="fas fa-globe-americas text-orange-500 mt-0.5"></i> <a href="https://www.catholicnewsagency.com" target="_blank" class="text-orange-600 hover:underline font-medium">Catholic News Agency</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-globe text-orange-500 mt-0.5"></i> <a href="https://www.ncregister.com" target="_blank" class="text-orange-600 hover:underline font-medium">National Catholic Register</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-vatican text-orange-500 mt-0.5"></i> <a href="https://www.vaticannews.va" target="_blank" class="text-orange-600 hover:underline font-medium">Vatican News</a></li>
+          </ul>
+          <a href="https://www.vaticannews.va" target="_blank">Read Catholic News <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 5. Prayer & Devotion -->
+        <div class="fade-up resource-card">
+          <div class="icon-wrap"><i class="fas fa-hands-praying"></i></div>
+          <h3>Prayer &amp; Devotion</h3>
+          <p>Resources to nourish your prayer life and deepen your relationship with Christ.</p>
+          <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
+            <li class="flex items-start gap-2"><i class="fas fa-cross text-orange-500 mt-0.5"></i> <a href="https://www.ewtn.com/catholicism/devotions" target="_blank" class="text-orange-600 hover:underline font-medium">EWTN Devotions</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-pray text-orange-500 mt-0.5"></i> <a href="https://www.praymorenovenas.com" target="_blank" class="text-orange-600 hover:underline font-medium">Pray More Novenas</a></li>
+          </ul>
+          <a href="https://www.ewtn.com/catholicism/devotions" target="_blank">Explore Devotions <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 6. Youth & Campus -->
+        <div class="fade-up resource-card">
+          <div class="icon-wrap"><i class="fas fa-user-graduate"></i></div>
+          <h3>Youth &amp; Campus</h3>
+          <p>Faith resources for young people and campus ministry.</p>
+          <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
+            <li class="flex items-start gap-2"><i class="fas fa-fire text-orange-500 mt-0.5"></i> <a href="https://jesusyouth.org" target="_blank" class="text-orange-600 hover:underline font-medium">Jesus Youth International</a></li>
+            <li class="flex items-start gap-2"><i class="fas fa-university text-orange-500 mt-0.5"></i> <a href="https://www.focus.org" target="_blank" class="text-orange-600 hover:underline font-medium">FOCUS Catholic</a></li>
+          </ul>
+          <a href="https://jesusyouth.org" target="_blank">Visit Jesus Youth <i class="fas fa-arrow-right"></i></a>
+        </div>
+
       </div>
 
-      <!-- 3. Apologetics & Fathers -->
-      <div class="fade-up resource-card">
-        <div class="icon-wrap"><i class="fas fa-shield-alt"></i></div>
-        <h3>Apologetics &amp; Fathers</h3>
-        <p>Defend the faith and discover the wisdom of the early Church.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
-          <li class="flex items-start gap-2"><i class="fas fa-comment-dots text-orange-500 mt-0.5"></i> <a href="https://www.catholic.com" target="_blank" class="text-orange-600 hover:underline font-medium">Catholic Answers</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-scroll text-orange-500 mt-0.5"></i> <a href="https://www.newadvent.org/fathers/" target="_blank" class="text-orange-600 hover:underline font-medium">Church Fathers (New Advent)</a></li>
-        </ul>
-        <a href="https://www.catholic.com" target="_blank">Learn Apologetics <i class="fas fa-arrow-right"></i></a>
+      <!-- bottom note -->
+      <div class="text-center mt-14 fade-up">
+        <p class="text-white/70 text-sm max-w-xl mx-auto">
+          <i class="fas fa-quote-left text-amber-200 mr-1"></i> 
+          <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span> 
+          — 1 Peter 3:15
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="index.html" class="text-white/80 hover:text-white text-sm font-medium transition"><i class="fas fa-arrow-left mr-1"></i> Back to Home</a>
+          <span class="text-white/30">|</span>
+          <a href="#top" class="text-white/80 hover:text-white text-sm font-medium transition"><i class="fas fa-arrow-up mr-1"></i> Top</a>
+        </div>
       </div>
 
-      <!-- 4. Catholic News (row 2 col 1) -->
-      <div class="fade-up resource-card">
-        <div class="icon-wrap"><i class="fas fa-newspaper"></i></div>
-        <h3>Catholic News</h3>
-        <p>Stay informed with trusted Catholic journalism from around the world.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
-          <li class="flex items-start gap-2"><i class="fas fa-globe-americas text-orange-500 mt-0.5"></i> <a href="https://www.catholicnewsagency.com" target="_blank" class="text-orange-600 hover:underline font-medium">Catholic News Agency</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-globe text-orange-500 mt-0.5"></i> <a href="https://www.ncregister.com" target="_blank" class="text-orange-600 hover:underline font-medium">National Catholic Register</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-vatican text-orange-500 mt-0.5"></i> <a href="https://www.vaticannews.va" target="_blank" class="text-orange-600 hover:underline font-medium">Vatican News</a></li>
-        </ul>
-        <a href="https://www.vaticannews.va" target="_blank">Read Catholic News <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-      <!-- 5. Extra – Prayer & Devotion (bonus, to balance the grid) -->
-      <div class="fade-up resource-card">
-        <div class="icon-wrap"><i class="fas fa-hands-praying"></i></div>
-        <h3>Prayer &amp; Devotion</h3>
-        <p>Resources to nourish your prayer life and deepen your relationship with Christ.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
-          <li class="flex items-start gap-2"><i class="fas fa-cross text-orange-500 mt-0.5"></i> <a href="https://www.ewtn.com/catholicism/devotions" target="_blank" class="text-orange-600 hover:underline font-medium">EWTN Devotions</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-pray text-orange-500 mt-0.5"></i> <a href="https://www.praymorenovenas.com" target="_blank" class="text-orange-600 hover:underline font-medium">Pray More Novenas</a></li>
-        </ul>
-        <a href="https://www.ewtn.com/catholicism/devotions" target="_blank">Explore Devotions <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-      <!-- 6. Extra – Youth & Campus (bonus) -->
-      <div class="fade-up resource-card">
-        <div class="icon-wrap"><i class="fas fa-user-graduate"></i></div>
-        <h3>Youth &amp; Campus</h3>
-        <p>Faith resources for young people and campus ministry.</p>
-        <ul class="mt-2 space-y-2 text-sm text-gray-700 flex-1">
-          <li class="flex items-start gap-2"><i class="fas fa-fire text-orange-500 mt-0.5"></i> <a href="https://jesusyouth.org" target="_blank" class="text-orange-600 hover:underline font-medium">Jesus Youth International</a></li>
-          <li class="flex items-start gap-2"><i class="fas fa-university text-orange-500 mt-0.5"></i> <a href="https://www.focus.org" target="_blank" class="text-orange-600 hover:underline font-medium">FOCUS Catholic</a></li>
-        </ul>
-        <a href="https://jesusyouth.org" target="_blank">Visit Jesus Youth <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-    </div>
-
-    <!-- bottom note -->
-    <div class="text-center mt-14 fade-up">
-      <p class="text-white/70 text-sm max-w-xl mx-auto">
-        <i class="fas fa-quote-left text-amber-200 mr-1"></i> 
-        <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span> 
-        — 1 Peter 3:15
-      </p>
-      <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <a href="index.html" class="text-white/80 hover:text-white text-sm font-medium transition"><i class="fas fa-arrow-left mr-1"></i> Back to Home</a>
-        <span class="text-white/30">|</span>
-        <a href="#top" class="text-white/80 hover:text-white text-sm font-medium transition"><i class="fas fa-arrow-up mr-1"></i> Top</a>
-      </div>
-    </div>
-
+    </div> <!-- end max-w-6xl -->
   </main>
 
   <!-- ===== FOOTER (same as index) ===== -->
