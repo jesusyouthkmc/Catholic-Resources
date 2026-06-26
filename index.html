@@ -4,16 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Catholic Resources | Jesus Youth KMC</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0b0a0a;
       min-height: 100vh;
       position: relative;
     }
+
+    /* ---------- GRADIENT BACKGROUND ---------- */
     .gradient-bg {
       background: linear-gradient(145deg, #FF8C42 0%, #FF6B35 50%, #F25E2C 100%);
       position: fixed;
@@ -24,10 +32,12 @@
       content: '';
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
       z-index: -1;
       pointer-events: none;
     }
+
+    /* ---------- BACKGROUND LOGO ---------- */
     .bg-logo {
       position: fixed;
       bottom: 20px;
@@ -39,20 +49,37 @@
       z-index: 0;
       object-fit: contain;
     }
-    @media (min-width: 768px) { .bg-logo { right: -150px; width: 50%; } }
-    @media (min-width: 1024px) { .bg-logo { right: -200px; width: 40%; opacity: 0.05; } }
-    .content-wrapper { position: relative; z-index: 1; }
+    @media (min-width: 768px) {
+      .bg-logo {
+        right: -150px;
+        width: 50%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .bg-logo {
+        right: -200px;
+        width: 40%;
+        opacity: 0.05;
+      }
+    }
 
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- HEADER (GLASS) ---------- */
     .curved-glass-header {
       background: rgba(255, 140, 66, 0.88);
       backdrop-filter: blur(14px) saturate(180%);
       -webkit-backdrop-filter: blur(14px) saturate(180%);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       position: relative;
       z-index: 100;
     }
 
+    /* ---------- SIDEBAR (MOBILE) ---------- */
     .sidebar-menu {
       position: fixed;
       top: 0;
@@ -62,28 +89,37 @@
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: -8px 0 40px rgba(0,0,0,0.3);
+      box-shadow: -8px 0 40px rgba(0, 0, 0, 0.3);
       z-index: 1000;
       transform: translateX(100%);
       transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border-left: 1px solid rgba(255,255,255,0.1);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .sidebar-menu.open { transform: translateX(0); }
-    .sidebar-menu .flex { flex-shrink: 0; }
+    .sidebar-menu.open {
+      transform: translateX(0);
+    }
+    .sidebar-menu .flex {
+      flex-shrink: 0;
+    }
     .sidebar-menu nav {
       flex: 1;
       overflow-y: auto;
       padding: 10px 0 20px;
       scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.2) transparent;
+      scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     }
-    .sidebar-menu nav::-webkit-scrollbar { width: 4px; }
-    .sidebar-menu nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+    .sidebar-menu nav::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-menu nav::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
     .sidebar-menu a {
-      color: rgba(255,255,255,0.92);
+      color: rgba(255, 255, 255, 0.92);
       font-weight: 600;
       padding: 14px 20px;
       border-radius: 16px;
@@ -91,70 +127,85 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       margin: 4px 16px 8px 16px;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       text-decoration: none;
     }
-    .sidebar-menu a:hover { background: rgba(255,255,255,0.12); transform: translateX(-4px); border-color: rgba(255,255,255,0.2); }
-    .sidebar-menu i { width: 24px; font-size: 1.2rem; }
-    .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); z-index: 999; display: none; }
-    .menu-overlay.active { display: block; }
+    .sidebar-menu a:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateX(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .sidebar-menu i {
+      width: 24px;
+      font-size: 1.2rem;
+    }
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: none;
+    }
+    .menu-overlay.active {
+      display: block;
+    }
 
+    /* ---------- GLASS PANEL ---------- */
     .glass-panel {
       background: rgba(255, 255, 255, 0.10);
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 28px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
       padding: 1.8rem 1.8rem 2rem;
     }
     .glass-panel:hover {
       background: rgba(255, 255, 255, 0.16);
-      box-shadow: 0 28px 48px -16px rgba(0,0,0,0.35);
+      box-shadow: 0 28px 48px -16px rgba(0, 0, 0, 0.35);
       transform: translateY(-3px);
     }
-    .glass-panel .section-header {
+
+    /* ---------- SECTION HEADER (icon, title, desc on separate lines) ---------- */
+    .section-header {
       display: flex;
-      align-items: center;
-      gap: 16px;
+      flex-direction: column;
+      gap: 0.1rem;
       margin-bottom: 1.5rem;
-      flex-wrap: wrap;
     }
-    .glass-panel .section-icon {
-      font-size: 1.8rem;
+    .section-header .main-icon {
+      font-size: 2.2rem;
       color: #fff;
-      background: rgba(255,255,255,0.10);
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.12);
-      flex-shrink: 0;
+      display: block;
     }
-    .glass-panel .section-title-group h2 {
-      font-size: 1.6rem;
+    .section-header .section-title {
+      font-size: 1.8rem;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.02em;
       line-height: 1.2;
+      display: block;
     }
-    .glass-panel .section-title-group .subhead {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.75rem;
+    .section-header .section-desc {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-weight: 600;
+      display: block;
     }
 
-    /* ===== RESOURCE ENTRY – EACH ELEMENT ON ITS OWN LINE ===== */
+    /* ---------- RESOURCE ENTRY ---------- */
     .resource-entry {
-      padding: 1.2rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .resource-entry:last-child {
       border-bottom: none;
@@ -164,89 +215,96 @@
       padding-top: 0;
     }
 
-    /* Line 1: Icon */
-    .resource-entry .entry-icon {
-      color: #FFD8A0;
-      font-size: 1.3rem;
+    /* Line 1: Sub-icon + Title (same line) */
+    .resource-entry .title-line {
       display: block;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.1rem;
     }
-
-    /* Line 2: Title */
-    .resource-entry .title {
+    .resource-entry .title-line .sub-icon {
+      color: #FFD8A0;
+      font-size: 0.9rem;
+      margin-right: 6px;
+    }
+    .resource-entry .title-line .main-title {
       font-weight: 700;
       color: #fff;
-      font-size: 1.1rem;
-      display: block;
-      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
     }
 
-    /* Line 3: Badge (inline with title or separate? Keeping it on same line as title per your spec) */
-    .resource-entry .badge {
+    /* Line 2: Badge */
+    .resource-entry .badge-line {
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+    .resource-entry .badge-line .badge {
       font-weight: 400;
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
-      background: rgba(255,255,255,0.06);
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
       padding: 0.1rem 0.8rem;
       border-radius: 40px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      display: inline-block;
-      margin-left: 8px;
     }
 
-    /* Line 4: Subtitle */
-    .resource-entry .sub {
-      color: rgba(255,255,255,0.65);
-      font-size: 0.95rem;
-      font-weight: 400;
+    /* Line 3: Subtitle / Author */
+    .resource-entry .subtitle {
       display: block;
-      margin-bottom: 0.3rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      margin-bottom: 0.1rem;
     }
 
-    /* Line 5: Description */
+    /* Line 4: Description */
     .resource-entry .desc {
-      color: rgba(255,255,255,0.7);
+      display: block;
+      color: rgba(255, 255, 255, 0.7);
       font-size: 0.95rem;
       line-height: 1.5;
-      display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.1rem;
     }
 
-    /* Line 6: Link */
-    .resource-entry .link-row {
+    /* Line 5: Link (noticeable color) */
+    .resource-entry .link-line {
       display: block;
+      margin-top: 0.1rem;
     }
-    .resource-entry .link-row a {
+    .resource-entry .link-line a {
       color: #FFB347;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
       transition: all 0.2s;
       border-bottom: 2px solid rgba(255, 179, 71, 0.2);
-      word-break: break-word;
-      display: inline-block;
+      padding-bottom: 1px;
     }
-    .resource-entry .link-row a:hover {
+    .resource-entry .link-line a:hover {
       color: #FFD700;
       border-bottom-color: #FFB347;
+    }
+    .resource-entry .link-line .link-icon {
+      color: rgba(255, 179, 71, 0.5);
+      font-size: 0.7rem;
+      margin-left: 5px;
+      transition: all 0.2s;
+    }
+    .resource-entry .link-line a:hover .link-icon {
+      color: #FFD700;
       transform: translateX(3px);
     }
-    .resource-entry .link-row .link-icon {
-      color: rgba(255, 179, 71, 0.6);
-      font-size: 0.75rem;
-      margin-left: 6px;
-      transition: transform 0.2s;
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    .resource-entry .link-row a:hover .link-icon {
-      transform: translateX(4px);
-      color: #FFD700;
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
+    /* ---------- HERO IMAGE ---------- */
     .hero-vatican {
       width: 100%;
       height: 320px;
@@ -260,7 +318,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 60%, transparent 100%);
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
       pointer-events: none;
     }
     .hero-vatican .hero-text {
@@ -274,38 +332,51 @@
       display: block;
       margin-bottom: 0.1rem;
       line-height: 1;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
     }
     .hero-vatican .hero-text h1 {
       font-size: 3.8rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
       line-height: 1.05;
     }
     .hero-vatican .hero-text p {
       font-size: 1.15rem;
       opacity: 0.92;
       margin-top: 0.3rem;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
       font-weight: 500;
     }
     @media (max-width: 640px) {
-      .hero-vatican { height: 200px; padding: 0 1.2rem; }
-      .hero-vatican .hero-text h1 { font-size: 2.2rem; }
-      .hero-vatican .hero-text .flag { font-size: 2.2rem; }
-      .hero-vatican .hero-text p { font-size: 0.9rem; }
+      .hero-vatican {
+        height: 200px;
+        padding: 0 1.2rem;
+      }
+      .hero-vatican .hero-text h1 {
+        font-size: 2.2rem;
+      }
+      .hero-vatican .hero-text .flag {
+        font-size: 2.2rem;
+      }
+      .hero-vatican .hero-text p {
+        font-size: 0.9rem;
+      }
     }
     @media (min-width: 1024px) {
-      .hero-vatican { height: 400px; }
-      .hero-vatican .hero-text h1 { font-size: 5rem; }
+      .hero-vatican {
+        height: 400px;
+      }
+      .hero-vatican .hero-text h1 {
+        font-size: 5rem;
+      }
     }
 
     .footer-glass {
-      background: rgba(0,0,0,0.25);
+      background: rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(12px) saturate(180%);
       -webkit-backdrop-filter: blur(12px) saturate(180%);
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
   </style>
 </head>
@@ -366,151 +437,180 @@
 
     <div class="max-w-6xl mx-auto px-5 md:px-8 mt-10">
 
-      <!-- tagline -->
+      <!-- top bar -->
       <div class="flex items-center gap-3 mb-10 fade-up">
         <span class="bg-white/10 text-white/80 text-sm px-5 py-1.5 rounded-full font-semibold backdrop-blur-sm border border-white/10">
           <i class="fas fa-book-open mr-1"></i> Grow in Faith &amp; Knowledge
         </span>
       </div>
 
-      <!-- ===== 1. SCRIPTURE ===== -->
+      <!-- ===== SCRIPTURE ===== -->
       <div class="glass-panel fade-up mb-8">
         <div class="section-header">
-          <div class="section-icon"><i class="fas fa-bible"></i></div>
-          <div class="section-title-group">
-            <h2>Scripture</h2>
-            <div class="subhead">God's Word, made accessible</div>
-          </div>
+          <span class="main-icon">📖</span>
+          <span class="section-title">Scripture</span>
+          <span class="section-desc">God's Word, made accessible</span>
         </div>
 
         <!-- Entry 1 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-headphones"></i></span>
-          <span class="title">The Bible in a Year (English) <span class="badge">Starting Off</span></span>
-          <span class="sub">Ascension Presents with Fr. Mike Schmitz</span>
-          <span class="desc">A comprehensive audio journey through the entire Bible in 365 days.</span>
-          <span class="link-row"><a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank">The Bible in a Year Playlist <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-headphones"></i></span>
+            <span class="main-title">The Bible in a Year (English)</span>
+          </span>
+          <span class="badge-line"><span class="badge">Starting Off</span></span>
+          <span class="subtitle">Ascension Presents with Fr. Mike Schmitz</span>
+          <span class="desc">A daily podcast that takes you through the entire Bible in 365 days.</span>
+          <span class="link-line"><a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank">Listen on YouTube <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
 
         <!-- Entry 2 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-headphones"></i></span>
-          <span class="title">The Bible in a Year (മലയാളം) <span class="badge">Starting Off</span></span>
-          <span class="sub">Fr. Daniel Poovannathil</span>
-          <span class="desc">The complete Bible in Malayalam, narrated by Fr. Daniel Poovannathil.</span>
-          <span class="link-row"><a href="http://www.youtube.com/@biy-malayalam" target="_blank">Bible in a Year Malayalam <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-headphones"></i></span>
+            <span class="main-title">The Bible in a Year (മലയാളം)</span>
+          </span>
+          <span class="badge-line"><span class="badge">Starting Off</span></span>
+          <span class="subtitle">Fr. Daniel Poovannathil</span>
+          <span class="desc">The Bible in a Year in Malayalam, helping you grow in God's Word.</span>
+          <span class="link-line"><a href="http://www.youtube.com/@biy-malayalam" target="_blank">Watch on YouTube <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
 
         <!-- Entry 3 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-book-open"></i></span>
-          <span class="title">Agape Bible Study <span class="badge">Detailed Catholic Bible Study</span></span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-book-open"></i></span>
+            <span class="main-title">Agape Bible Study</span>
+          </span>
+          <span class="badge-line"><span class="badge">In-Depth</span></span>
+          <span class="subtitle">Agape Catholic Bible Study</span>
           <span class="desc">Comprehensive Catholic Bible studies with historical context, theology, and verse by verse analysis.</span>
-          <span class="link-row"><a href="https://www.agapebiblestudy.com" target="_blank">Visit Agape Bible Study <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="link-line"><a href="https://www.agapebiblestudy.com" target="_blank">Visit Agape Bible Study <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
       </div>
 
-      <!-- ===== 2. CATECHISM ===== -->
+      <!-- ===== CATECHISM ===== -->
       <div class="glass-panel fade-up mb-8">
         <div class="section-header">
-          <div class="section-icon"><i class="fas fa-church"></i></div>
-          <div class="section-title-group">
-            <h2>Catechism of the Catholic Church</h2>
-            <div class="subhead">The faith, handed on</div>
-          </div>
+          <span class="main-icon">⛪</span>
+          <span class="section-title">Catechism of the Catholic Church</span>
+          <span class="section-desc">The faith, handed on</span>
         </div>
 
         <!-- Entry 1 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-headphones"></i></span>
-          <span class="title">The Catechism in a Year (English) <span class="badge">Starting Off</span></span>
-          <span class="sub">Ascension Presents with Fr. Mike Schmitz</span>
-          <span class="desc">A daily podcast walking through the entire Catechism of the Catholic Church.</span>
-          <span class="link-row"><a href="https://ascensionpress.com/pages/catechisminayear" target="_blank">Catechism in a Year <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-headphones"></i></span>
+            <span class="main-title">The Catechism in a Year (English)</span>
+          </span>
+          <span class="badge-line"><span class="badge">Starting Off</span></span>
+          <span class="subtitle">Ascension Presents with Fr. Mike Schmitz</span>
+          <span class="desc">A daily journey through the entire Catechism of the Catholic Church.</span>
+          <span class="link-line"><a href="https://ascensionpress.com/pages/catechisminayear" target="_blank">Listen Now <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
 
         <!-- Entry 2 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-book"></i></span>
-          <span class="title">Read the Catechism Online <span class="badge">Full Text</span></span>
-          <span class="sub">Catechism of the Catholic Church</span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-book"></i></span>
+            <span class="main-title">Read the Catechism Online</span>
+          </span>
+          <span class="badge-line"><span class="badge">Full Text</span></span>
+          <span class="subtitle">USCCB</span>
           <span class="desc">A well presented and easy to navigate online edition of the Catechism.</span>
-          <span class="link-row"><a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank">Read the CCC <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="link-line"><a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank">Read the CCC <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
       </div>
 
-      <!-- ===== 3. APOLOGETICS ===== -->
+      <!-- ===== APOLOGETICS ===== -->
       <div class="glass-panel fade-up mb-8">
         <div class="section-header">
-          <div class="section-icon"><i class="fas fa-shield-alt"></i></div>
-          <div class="section-title-group">
-            <h2>Apologetics &amp; the Catholic Faith</h2>
-            <div class="subhead">Reason for our hope</div>
-          </div>
+          <span class="main-icon">🛡️</span>
+          <span class="section-title">Apologetics &amp; the Catholic Faith</span>
+          <span class="section-desc">Reason for our hope</span>
         </div>
 
         <!-- Entry 1 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-question-circle"></i></span>
-          <span class="title">Got Questions? <span class="badge">Catholic Answers</span></span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-question-circle"></i></span>
+            <span class="main-title">Got Questions?</span>
+          </span>
+          <span class="badge-line"><span class="badge">Apologetics</span></span>
+          <span class="subtitle">Catholic Answers</span>
           <span class="desc">Answers to thousands of questions about Catholic beliefs, Scripture, Church history, morality, and apologetics.</span>
-          <span class="link-row"><a href="https://www.catholic.com" target="_blank">Catholic Answers <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="link-line"><a href="https://www.catholic.com" target="_blank">Visit Catholic Answers <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
 
         <!-- Entry 2 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-scroll"></i></span>
-          <span class="title">What Did the Early Christians Believe? <span class="badge">Church Fathers</span></span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-scroll"></i></span>
+            <span class="main-title">What Did the Early Christians Believe?</span>
+          </span>
+          <span class="badge-line"><span class="badge">Historical</span></span>
+          <span class="subtitle">New Advent</span>
           <span class="desc">A vast collection of writings from the earliest Christian centuries.</span>
-          <span class="link-row"><a href="https://www.newadvent.org/fathers/" target="_blank">Writings of the Church Fathers <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="link-line"><a href="https://www.newadvent.org/fathers/" target="_blank">Read the Church Fathers <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
       </div>
 
-      <!-- ===== 4. CATHOLIC NEWS ===== -->
+      <!-- ===== CATHOLIC NEWS ===== -->
       <div class="glass-panel fade-up mb-8">
         <div class="section-header">
-          <div class="section-icon"><i class="fas fa-newspaper"></i></div>
-          <div class="section-title-group">
-            <h2>Catholic News</h2>
-            <div class="subhead">Stay informed, stay connected</div>
-          </div>
+          <span class="main-icon">📰</span>
+          <span class="section-title">Catholic News</span>
+          <span class="section-desc">Stay informed, stay connected</span>
         </div>
 
         <!-- Entry 1 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-globe-americas"></i></span>
-          <span class="title">Catholic News Agency</span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-globe-americas"></i></span>
+            <span class="main-title">Catholic News Agency</span>
+          </span>
+          <span class="badge-line"><span class="badge">News</span></span>
+          <span class="subtitle">CNA</span>
           <span class="desc">Trusted Catholic journalism from around the world.</span>
-          <span class="link-row"><a href="https://www.catholicnewsagency.com" target="_blank">Visit CNA <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="link-line"><a href="https://www.catholicnewsagency.com" target="_blank">Visit CNA <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
 
         <!-- Entry 2 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-globe"></i></span>
-          <span class="title">National Catholic Register</span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-globe"></i></span>
+            <span class="main-title">National Catholic Register</span>
+          </span>
+          <span class="badge-line"><span class="badge">News</span></span>
+          <span class="subtitle">NCRegister</span>
           <span class="desc">In-depth reporting and commentary on the life of the Church.</span>
-          <span class="link-row"><a href="https://www.ncregister.com" target="_blank">Visit NCR <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="link-line"><a href="https://www.ncregister.com" target="_blank">Visit NCR <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
 
         <!-- Entry 3 -->
         <div class="resource-entry">
-          <span class="entry-icon"><i class="fas fa-vatican"></i></span>
-          <span class="title">Vatican News</span>
+          <span class="title-line">
+            <span class="sub-icon"><i class="fas fa-vatican"></i></span>
+            <span class="main-title">Vatican News</span>
+          </span>
+          <span class="badge-line"><span class="badge">Official</span></span>
+          <span class="subtitle">Holy See</span>
           <span class="desc">Official news from the Holy See.</span>
-          <span class="link-row"><a href="https://www.vaticannews.va" target="_blank">Visit Vatican News <i class="fas fa-external-link-alt link-icon"></i></a></span>
+          <span class="link-line"><a href="https://www.vaticannews.va" target="_blank">Visit Vatican News <i class="fas fa-external-link-alt link-icon"></i></a></span>
         </div>
       </div>
 
       <!-- bottom note -->
       <div class="text-center mt-10 fade-up">
         <p class="text-white/60 text-sm max-w-xl mx-auto">
-          <i class="fas fa-quote-left text-amber-200/60 mr-1"></i> 
-          <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span> 
+          <i class="fas fa-quote-left text-amber-200/60 mr-1"></i>
+          <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span>
           — 1 Peter 3:15
         </p>
       </div>
 
-    </div> <!-- end container -->
+    </div>
+    <!-- end container -->
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -539,6 +639,7 @@
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
+
     function closeMenuFn() {
       mobileMenu.classList.remove('open');
       overlay.classList.remove('active');
