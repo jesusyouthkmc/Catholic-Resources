@@ -153,12 +153,13 @@
       letter-spacing: 0.05em;
       font-weight: 600;
     }
-    /* ----- UNIFORM RESOURCE ENTRY ----- */
+
+    /* ----- RESOURCE ENTRY – each component on separate line ----- */
     .resource-entry {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       align-items: flex-start;
-      padding: 0.75rem 0;
+      padding: 0.85rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .resource-entry:last-child {
@@ -168,27 +169,33 @@
     .resource-entry:first-child {
       padding-top: 0;
     }
+
+    /* Icon – left side */
     .resource-entry .entry-icon {
       color: #FFD8A0;
-      font-size: 1rem;
-      width: 22px;
+      font-size: 1.1rem;
+      width: 24px;
       text-align: center;
-      margin-top: 0.15rem;
+      margin-top: 0.2rem;
       flex-shrink: 0;
     }
+
+    /* Body – all content */
     .resource-entry .entry-body {
       flex: 1;
       min-width: 0;
     }
+
+    /* Each piece of content is a block element on its own line */
     .resource-entry .title {
       font-weight: 700;
       color: #fff;
-      font-size: 1rem;
+      font-size: 1.05rem;
       display: flex;
       align-items: baseline;
       gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.15rem;
     }
     .resource-entry .title .badge {
       font-weight: 400;
@@ -202,39 +209,67 @@
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
+
+    /* Subtitle – author/publisher – slightly bigger */
     .resource-entry .sub {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
       font-weight: 400;
-      margin-bottom: 0.1rem;
       display: block;
+      margin-bottom: 0.1rem;
     }
+
+    /* Description – slightly bigger */
     .resource-entry .desc {
       color: rgba(255,255,255,0.7);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       line-height: 1.5;
       display: block;
+      margin-bottom: 0.1rem;
     }
+
+    /* Link – NOTICEABLE COLOR (bright amber/gold) + slightly bigger */
     .resource-entry .link-row {
       display: block;
-      margin-top: 0.15rem;
+      margin-top: 0.1rem;
     }
-    .resource-entry a {
-      color: #FFD8A0;
+    .resource-entry .link-row a {
+      color: #FFB347;
       text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
-      border-bottom: 1px solid transparent;
-      word-break: break-word;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      border-bottom: 2px solid rgba(255, 179, 71, 0.2);
+      padding-bottom: 1px;
+      display: inline-block;
     }
-    .resource-entry a:hover {
-      color: #fff;
-      border-bottom-color: rgba(255, 216, 160, 0.3);
+    .resource-entry .link-row a:hover {
+      color: #FFD700;
+      border-bottom-color: #FFB347;
+      transform: translateX(2px);
     }
-    .resource-entry .link-icon {
-      color: rgba(255,255,255,0.3);
+    .resource-entry .link-row .link-icon {
+      color: rgba(255, 179, 71, 0.5);
       font-size: 0.7rem;
-      margin-left: 4px;
+      margin-left: 5px;
+      transition: all 0.25s ease;
+    }
+    .resource-entry .link-row a:hover .link-icon {
+      color: #FFD700;
+      transform: translateX(3px);
+    }
+
+    /* News section – same uniform style */
+    .news-list .resource-entry {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .news-list .resource-entry:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .news-list .resource-entry:first-child {
+      padding-top: 0;
     }
 
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -386,30 +421,33 @@
           </div>
         </div>
 
+        <!-- Entry 1 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-headphones"></i></div>
           <div class="entry-body">
             <div class="title">The Bible in a Year (English) <span class="badge">Starting Off</span></div>
             <span class="sub">Ascension Presents with Fr. Mike Schmitz</span>
-            <span class="desc"><a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank">The Bible in a Year Playlist <i class="fas fa-external-link-alt link-icon"></i></a></span>
+            <span class="link-row"><a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank">The Bible in a Year Playlist <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
 
+        <!-- Entry 2 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-headphones"></i></div>
           <div class="entry-body">
             <div class="title">The Bible in a Year (മലയാളം) <span class="badge">Starting Off</span></div>
             <span class="sub">Fr. Daniel Poovannathil</span>
-            <span class="desc"><a href="http://www.youtube.com/@biy-malayalam" target="_blank">Bible in a Year Malayalam <i class="fas fa-external-link-alt link-icon"></i></a></span>
+            <span class="link-row"><a href="http://www.youtube.com/@biy-malayalam" target="_blank">Bible in a Year Malayalam <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
 
+        <!-- Entry 3 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-book-open"></i></div>
           <div class="entry-body">
             <div class="title">Agape Bible Study <span class="badge">Detailed Catholic Bible Study</span></div>
             <span class="desc">Comprehensive Catholic Bible studies with historical context, theology, and verse by verse analysis.</span>
-            <span class="desc"><a href="https://www.agapebiblestudy.com" target="_blank">Visit Agape Bible Study <i class="fas fa-external-link-alt link-icon"></i></a></span>
+            <span class="link-row"><a href="https://www.agapebiblestudy.com" target="_blank">Visit Agape Bible Study <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
       </div>
@@ -424,22 +462,24 @@
           </div>
         </div>
 
+        <!-- Entry 1 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-headphones"></i></div>
           <div class="entry-body">
             <div class="title">The Catechism in a Year (English) <span class="badge">Starting Off</span></div>
             <span class="sub">Ascension Presents with Fr. Mike Schmitz</span>
-            <span class="desc"><a href="https://ascensionpress.com/pages/catechisminayear" target="_blank">Catechism in a Year <i class="fas fa-external-link-alt link-icon"></i></a></span>
+            <span class="link-row"><a href="https://ascensionpress.com/pages/catechisminayear" target="_blank">Catechism in a Year <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
 
+        <!-- Entry 2 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-book"></i></div>
           <div class="entry-body">
             <div class="title">Read the Catechism Online <span class="badge">Full Text</span></div>
             <span class="sub">Catechism of the Catholic Church</span>
             <span class="desc">A well presented and easy to navigate online edition of the Catechism.</span>
-            <span class="desc"><a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank">Read the CCC <i class="fas fa-external-link-alt link-icon"></i></a></span>
+            <span class="link-row"><a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank">Read the CCC <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
       </div>
@@ -454,21 +494,23 @@
           </div>
         </div>
 
+        <!-- Entry 1 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-question-circle"></i></div>
           <div class="entry-body">
             <div class="title">Got Questions? <span class="badge">Catholic Answers</span></div>
             <span class="desc">Answers to thousands of questions about Catholic beliefs, Scripture, Church history, morality, and apologetics.</span>
-            <span class="desc"><a href="https://www.catholic.com" target="_blank">Catholic Answers <i class="fas fa-external-link-alt link-icon"></i></a></span>
+            <span class="link-row"><a href="https://www.catholic.com" target="_blank">Catholic Answers <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
 
+        <!-- Entry 2 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-scroll"></i></div>
           <div class="entry-body">
             <div class="title">What Did the Early Christians Believe? <span class="badge">Church Fathers</span></div>
             <span class="desc">A vast collection of writings from the earliest Christian centuries.</span>
-            <span class="desc"><a href="https://www.newadvent.org/fathers/" target="_blank">Writings of the Church Fathers <i class="fas fa-external-link-alt link-icon"></i></a></span>
+            <span class="link-row"><a href="https://www.newadvent.org/fathers/" target="_blank">Writings of the Church Fathers <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
       </div>
@@ -483,27 +525,33 @@
           </div>
         </div>
 
+        <!-- Entry 1 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-globe-americas"></i></div>
           <div class="entry-body">
-            <div class="title"><a href="https://www.catholicnewsagency.com" target="_blank">Catholic News Agency <i class="fas fa-external-link-alt link-icon"></i></a></div>
+            <div class="title">Catholic News Agency</div>
             <span class="desc">Trusted Catholic journalism from around the world.</span>
+            <span class="link-row"><a href="https://www.catholicnewsagency.com" target="_blank">Visit CNA <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
 
+        <!-- Entry 2 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-globe"></i></div>
           <div class="entry-body">
-            <div class="title"><a href="https://www.ncregister.com" target="_blank">National Catholic Register <i class="fas fa-external-link-alt link-icon"></i></a></div>
+            <div class="title">National Catholic Register</div>
             <span class="desc">In-depth reporting and commentary on the life of the Church.</span>
+            <span class="link-row"><a href="https://www.ncregister.com" target="_blank">Visit NCR <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
 
+        <!-- Entry 3 -->
         <div class="resource-entry">
           <div class="entry-icon"><i class="fas fa-vatican"></i></div>
           <div class="entry-body">
-            <div class="title"><a href="https://www.vaticannews.va" target="_blank">Vatican News <i class="fas fa-external-link-alt link-icon"></i></a></div>
+            <div class="title">Vatican News</div>
             <span class="desc">Official news from the Holy See.</span>
+            <span class="link-row"><a href="https://www.vaticannews.va" target="_blank">Visit Vatican News <i class="fas fa-external-link-alt link-icon"></i></a></span>
           </div>
         </div>
       </div>
