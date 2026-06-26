@@ -203,21 +203,31 @@
       filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
     }
 
-    /* GLASS PANELS - FF630A with transparency */
+    /* GLASS PANELS - NO FROSTED EFFECT, just solid color */
     .glass-panel {
-      background: rgba(255, 99, 10, 0.25);
-      backdrop-filter: blur(12px) saturate(180%);
-      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      background: rgba(255, 99, 10, 0.85);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 28px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
       padding: 1.8rem 1.8rem 2rem;
     }
     .glass-panel:hover {
-      background: rgba(255, 99, 10, 0.35);
+      background: rgba(255, 99, 10, 0.95);
       box-shadow: 0 28px 48px -16px rgba(0,0,0,0.4);
       transform: translateY(-3px);
+    }
+
+    /* FROSTED EFFECT FOR BIBLE VERSE */
+    .bible-verse-glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 28px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.3);
+      display: inline-block;
     }
 
     .section-header {
@@ -546,12 +556,15 @@
         </div>
       </div>
 
+      <!-- BIBLE VERSE WITH FROSTED EFFECT -->
       <div class="text-center mt-10 fade-up">
-        <p class="text-white/85 text-sm max-w-xl mx-auto">
-          <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span>
-          <br />
-          — 1 Peter 3:15
-        </p>
+        <div class="bible-verse-glass">
+          <p class="text-white/90 text-sm max-w-xl mx-auto">
+            <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span>
+            <br />
+            <span class="text-amber-200">— 1 Peter 3:15</span>
+          </p>
+        </div>
       </div>
 
     </div>
