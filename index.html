@@ -147,8 +147,9 @@
             display: block;
         }
 
+        /* SOFT WHITE GLASS PANEL */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.10);
+            background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -158,12 +159,12 @@
             padding: 1.8rem 1.8rem 2rem;
         }
         .glass-panel:hover {
-            background: rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.18);
             box-shadow: 0 28px 48px -16px rgba(0, 0, 0, 0.35);
             transform: translateY(-3px);
         }
 
-        /* Section Header: Icon, Title, Description - each on separate line */
+        /* Section Header */
         .section-header {
             display: flex;
             flex-direction: column;
@@ -205,7 +206,6 @@
             padding-top: 0;
         }
 
-        /* Line 1: Sub-icon + Title (same line) - Title is a link */
         .resource-entry .title-line {
             display: block;
             margin-bottom: 0.1rem;
@@ -238,7 +238,6 @@
             transform: translateX(2px);
         }
 
-        /* Line 2: Badge */
         .resource-entry .badge-line {
             display: block;
             margin-bottom: 0.1rem;
@@ -255,7 +254,6 @@
             letter-spacing: 0.04em;
         }
 
-        /* Line 3: Subtitle / Author */
         .resource-entry .subtitle {
             display: block;
             color: rgba(255, 255, 255, 0.6);
@@ -263,7 +261,6 @@
             margin-bottom: 0.1rem;
         }
 
-        /* Line 4: Description */
         .resource-entry .desc {
             display: block;
             color: rgba(255, 255, 255, 0.7);
