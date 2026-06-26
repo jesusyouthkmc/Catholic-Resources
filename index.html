@@ -203,19 +203,19 @@
       filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
     }
 
-    /* GLASS PANELS - More transparent for better image visibility */
+    /* GLASS PANELS - FF630A with transparency */
     .glass-panel {
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(10px) saturate(180%);
-      -webkit-backdrop-filter: blur(10px) saturate(180%);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255, 99, 10, 0.25);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 28px;
       box-shadow: 0 20px 40px -12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
       transition: all 0.3s ease;
       padding: 1.8rem 1.8rem 2rem;
     }
     .glass-panel:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 99, 10, 0.35);
       box-shadow: 0 28px 48px -16px rgba(0,0,0,0.4);
       transform: translateY(-3px);
     }
