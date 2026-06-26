@@ -147,19 +147,19 @@
             display: block;
         }
 
-        /* WHITE GLASS PANEL — solid white with slight glass effect */
+        /* SOFT WHITE GLASS PANEL */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(4px) saturate(180%);
-            -webkit-backdrop-filter: blur(4px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 28px;
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             padding: 1.8rem 1.8rem 2rem;
         }
         .glass-panel:hover {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.18);
             box-shadow: 0 28px 48px -16px rgba(0, 0, 0, 0.35);
             transform: translateY(-3px);
         }
@@ -173,19 +173,19 @@
         }
         .section-header .main-icon {
             font-size: 2.2rem;
-            color: #FF6B35;
+            color: #fff;
             display: block;
         }
         .section-header .section-title {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #fff;
             letter-spacing: -0.02em;
             line-height: 1.2;
             display: block;
         }
         .section-header .section-desc {
-            color: rgba(0, 0, 0, 0.4);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -196,8 +196,8 @@
         /* Resource Entry */
         .resource-entry {
             padding: 0.9rem 0;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.12);
-            /* Much more visible */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            /* More visible line */
         }
         .resource-entry:last-child {
             border-bottom: none;
@@ -212,30 +212,30 @@
             margin-bottom: 0.1rem;
         }
         .resource-entry .title-line .sub-icon {
-            color: #FF6B35;
+            color: #FFD8A0;
             font-size: 0.9rem;
             margin-right: 6px;
         }
         .resource-entry .title-line .main-title {
             font-weight: 700;
             font-size: 1.05rem;
-            color: #FF6B35;
+            color: #FFD8A0;
             text-decoration: none;
             transition: all 0.2s;
             border-bottom: 1px solid transparent;
         }
         .resource-entry .title-line .main-title:hover {
-            color: #d94f1a;
-            border-bottom-color: rgba(255, 107, 53, 0.3);
+            color: #fff;
+            border-bottom-color: rgba(255, 216, 160, 0.3);
         }
         .resource-entry .title-line .main-title .external-icon {
-            color: rgba(255, 107, 53, 0.4);
+            color: rgba(255, 216, 160, 0.4);
             font-size: 0.7rem;
             margin-left: 5px;
             transition: all 0.2s;
         }
         .resource-entry .title-line .main-title:hover .external-icon {
-            color: #FF6B35;
+            color: #FFD8A0;
             transform: translateX(2px);
         }
 
@@ -246,25 +246,25 @@
         .resource-entry .badge-line .badge {
             font-weight: 400;
             font-size: 0.7rem;
-            color: rgba(0, 0, 0, 0.5);
-            background: rgba(0, 0, 0, 0.06);
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.08);
             padding: 0.1rem 0.8rem;
             border-radius: 40px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             text-transform: uppercase;
             letter-spacing: 0.04em;
         }
 
         .resource-entry .subtitle {
             display: block;
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.95rem;
             margin-bottom: 0.1rem;
         }
 
         .resource-entry .desc {
             display: block;
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 0.1rem;
@@ -414,7 +414,7 @@
 
             <!-- Top bar -->
             <div class="flex items-center gap-3 mb-10 fade-up">
-                <span class="bg-white/20 text-gray-800 text-sm px-5 py-1.5 rounded-full font-semibold backdrop-blur-sm border border-white/30">
+                <span class="bg-white/10 text-white/80 text-sm px-5 py-1.5 rounded-full font-semibold backdrop-blur-sm border border-white/10">
                     <i class="fas fa-book-open mr-1"></i> Grow in Faith &amp; Knowledge
                 </span>
             </div>
@@ -587,7 +587,7 @@
 
             <!-- Bottom note -->
             <div class="text-center mt-10 fade-up">
-                <p class="text-white/80 text-sm max-w-xl mx-auto">
+                <p class="text-white/60 text-sm max-w-xl mx-auto">
                     <i class="fas fa-quote-left text-amber-200/60 mr-1"></i>
                     <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span>
                     — 1 Peter 3:15
