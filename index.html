@@ -119,48 +119,59 @@
       box-shadow: 0 28px 48px -16px rgba(0,0,0,0.35);
       transform: translateY(-3px);
     }
+    .glass-panel .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
     .glass-panel .section-icon {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #fff;
       background: rgba(255,255,255,0.10);
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 18px;
-      margin-bottom: 1rem;
+      border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.12);
       flex-shrink: 0;
     }
-    .glass-panel h2 {
-      font-size: 1.8rem;
+    .glass-panel .section-title-group h2 {
+      font-size: 1.6rem;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
+      line-height: 1.2;
     }
-    .glass-panel .subhead {
+    .glass-panel .section-title-group .subhead {
       color: rgba(255,255,255,0.5);
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-weight: 600;
-      margin-bottom: 1.2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding-bottom: 0.5rem;
     }
+    /* ----- UNIFORM RESOURCE ENTRY ----- */
     .resource-entry {
-      margin-bottom: 1.2rem;
       display: flex;
       gap: 14px;
       align-items: flex-start;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    .resource-entry:last-child { margin-bottom: 0; }
+    .resource-entry:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .resource-entry:first-child {
+      padding-top: 0;
+    }
     .resource-entry .entry-icon {
       color: #FFD8A0;
-      font-size: 1.1rem;
-      width: 24px;
+      font-size: 1rem;
+      width: 22px;
       text-align: center;
       margin-top: 0.1rem;
       flex-shrink: 0;
@@ -180,19 +191,21 @@
     }
     .resource-entry .title .badge {
       font-weight: 400;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       color: rgba(255,255,255,0.5);
       background: rgba(255,255,255,0.06);
-      padding: 0.1rem 0.7rem;
+      padding: 0.05rem 0.7rem;
       border-radius: 40px;
       border: 1px solid rgba(255,255,255,0.05);
       white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
     .resource-entry .sub {
       color: rgba(255,255,255,0.6);
       font-size: 0.85rem;
       font-weight: 400;
-      margin: 0.1rem 0 0.15rem;
+      margin: 0.05rem 0 0.1rem;
     }
     .resource-entry .desc {
       color: rgba(255,255,255,0.7);
@@ -217,31 +230,28 @@
       font-size: 0.7rem;
       margin-left: 4px;
     }
+
+    /* news list – same uniform style */
+    .news-list .resource-entry {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .news-list .resource-entry:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .news-list .resource-entry:first-child {
+      padding-top: 0;
+    }
+
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* back button */
-    .back-btn {
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      padding: 0.6rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      transition: all 0.25s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-    .back-btn:hover { background: rgba(255,255,255,0.22); transform: scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
-
-    /* ----- HERO IMAGE – your Pexels image, full width, no rounding ----- */
+    /* ----- HERO IMAGE – your Pexels link, full width, no rounding ----- */
     .hero-vatican {
       width: 100%;
       height: 320px;
-      background: url('https://images.pexels.com/photos/17359031/pexels-photo-17359031.jpeg') center/cover no-repeat;
+      background: url('https://images.pexels.com/photos/25748027/pexels-photo-25748027.jpeg') center/cover no-repeat;
       position: relative;
       display: flex;
       align-items: center;
@@ -299,16 +309,11 @@
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* divider */
     .section-divider {
       border: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
       margin: 0.5rem 0 1.2rem;
-    }
-    /* news list compact */
-    .news-list .resource-entry {
-      margin-bottom: 0.6rem;
     }
   </style>
 </head>
@@ -369,21 +374,20 @@
 
     <div class="max-w-6xl mx-auto px-5 md:px-8 mt-10">
 
-      <!-- top bar -->
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-10 fade-up">
+      <!-- top bar – just the tagline, no buttons -->
+      <div class="flex items-center gap-3 mb-10 fade-up">
         <span class="bg-white/10 text-white/80 text-sm px-5 py-1.5 rounded-full font-semibold backdrop-blur-sm border border-white/10">
           <i class="fas fa-book-open mr-1"></i> Grow in Faith &amp; Knowledge
         </span>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
       </div>
 
-      <!-- ===== RESOURCE SECTIONS (organized) ===== -->
+      <!-- ===== RESOURCE SECTIONS – uniformly organized ===== -->
 
       <!-- 1. SCRIPTURE -->
       <div class="glass-panel fade-up mb-8">
-        <div class="flex items-center gap-4 flex-wrap">
+        <div class="section-header">
           <div class="section-icon"><i class="fas fa-bible"></i></div>
-          <div>
+          <div class="section-title-group">
             <h2>Scripture</h2>
             <div class="subhead">God's Word, made accessible</div>
           </div>
@@ -418,9 +422,9 @@
 
       <!-- 2. CATECHISM -->
       <div class="glass-panel fade-up mb-8">
-        <div class="flex items-center gap-4 flex-wrap">
+        <div class="section-header">
           <div class="section-icon"><i class="fas fa-church"></i></div>
-          <div>
+          <div class="section-title-group">
             <h2>Catechism of the Catholic Church</h2>
             <div class="subhead">The faith, handed on</div>
           </div>
@@ -447,9 +451,9 @@
 
       <!-- 3. APOLOGETICS -->
       <div class="glass-panel fade-up mb-8">
-        <div class="flex items-center gap-4 flex-wrap">
+        <div class="section-header">
           <div class="section-icon"><i class="fas fa-shield-alt"></i></div>
-          <div>
+          <div class="section-title-group">
             <h2>Apologetics &amp; the Catholic Faith</h2>
             <div class="subhead">Reason for our hope</div>
           </div>
@@ -474,35 +478,35 @@
 
       <!-- 4. CATHOLIC NEWS -->
       <div class="glass-panel fade-up mb-8">
-        <div class="flex items-center gap-4 flex-wrap">
+        <div class="section-header">
           <div class="section-icon"><i class="fas fa-newspaper"></i></div>
-          <div>
+          <div class="section-title-group">
             <h2>Catholic News</h2>
             <div class="subhead">Stay informed, stay connected</div>
           </div>
         </div>
 
-        <div class="news-list">
-          <div class="resource-entry">
-            <div class="entry-icon"><i class="fas fa-globe-americas"></i></div>
-            <div class="entry-body">
-              <div class="title"><a href="https://www.catholicnewsagency.com" target="_blank">Catholic News Agency <i class="fas fa-external-link-alt link-icon"></i></a></div>
-              <div class="desc">Trusted Catholic journalism from around the world.</div>
-            </div>
+        <div class="resource-entry">
+          <div class="entry-icon"><i class="fas fa-globe-americas"></i></div>
+          <div class="entry-body">
+            <div class="title"><a href="https://www.catholicnewsagency.com" target="_blank">Catholic News Agency <i class="fas fa-external-link-alt link-icon"></i></a></div>
+            <div class="desc">Trusted Catholic journalism from around the world.</div>
           </div>
-          <div class="resource-entry">
-            <div class="entry-icon"><i class="fas fa-globe"></i></div>
-            <div class="entry-body">
-              <div class="title"><a href="https://www.ncregister.com" target="_blank">National Catholic Register <i class="fas fa-external-link-alt link-icon"></i></a></div>
-              <div class="desc">In-depth reporting and commentary on the life of the Church.</div>
-            </div>
+        </div>
+
+        <div class="resource-entry">
+          <div class="entry-icon"><i class="fas fa-globe"></i></div>
+          <div class="entry-body">
+            <div class="title"><a href="https://www.ncregister.com" target="_blank">National Catholic Register <i class="fas fa-external-link-alt link-icon"></i></a></div>
+            <div class="desc">In-depth reporting and commentary on the life of the Church.</div>
           </div>
-          <div class="resource-entry">
-            <div class="entry-icon"><i class="fas fa-vatican"></i></div>
-            <div class="entry-body">
-              <div class="title"><a href="https://www.vaticannews.va" target="_blank">Vatican News <i class="fas fa-external-link-alt link-icon"></i></a></div>
-              <div class="desc">Official news from the Holy See.</div>
-            </div>
+        </div>
+
+        <div class="resource-entry">
+          <div class="entry-icon"><i class="fas fa-vatican"></i></div>
+          <div class="entry-body">
+            <div class="title"><a href="https://www.vaticannews.va" target="_blank">Vatican News <i class="fas fa-external-link-alt link-icon"></i></a></div>
+            <div class="desc">Official news from the Holy See.</div>
           </div>
         </div>
       </div>
@@ -514,11 +518,6 @@
           <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span> 
           — 1 Peter 3:15
         </p>
-        <div class="mt-6 flex flex-wrap justify-center gap-3">
-          <a href="index.html" class="text-white/70 hover:text-white text-sm font-medium transition"><i class="fas fa-arrow-left mr-1"></i> Back to Home</a>
-          <span class="text-white/20">|</span>
-          <a href="#top" class="text-white/70 hover:text-white text-sm font-medium transition"><i class="fas fa-arrow-up mr-1"></i> Top</a>
-        </div>
       </div>
 
     </div> <!-- end container -->
