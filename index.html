@@ -16,11 +16,16 @@
     html { scroll-behavior: smooth; }
     body { font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     
-    /* Background gradient */
+    /* Background with image overlay */
     .glossy-orange-bg {
-      background: linear-gradient(135deg, #FF8C42 0%, #FF6B35 50%, #F25E2C 100%);
       position: relative;
       min-height: 100vh;
+      background: 
+        linear-gradient(135deg, rgba(255, 140, 66, 0.85) 0%, rgba(255, 107, 53, 0.85) 50%, rgba(242, 94, 44, 0.85) 100%),
+        url('https://images.pexels.com/photos/23787394/pexels-photo-23787394.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
     .glossy-orange-bg::before {
       content: '';
@@ -29,7 +34,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(125deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 40%);
+      background: linear-gradient(125deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 40%);
       pointer-events: none;
     }
     
@@ -200,18 +205,18 @@
     }
 
     .glass-panel {
-      background: #FF6209;
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 28px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
       transition: all 0.3s ease;
       padding: 1.8rem 1.8rem 2rem;
     }
     .glass-panel:hover {
-      background: #FF7A33;
-      box-shadow: 0 28px 48px -16px rgba(0,0,0,0.35);
+      background: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 28px 48px -16px rgba(0,0,0,0.4);
       transform: translateY(-3px);
     }
 
@@ -222,8 +227,8 @@
       margin-bottom: 1.5rem;
     }
     .section-header .main-icon { font-size: 2.2rem; color: #fff; display: block; }
-    .section-header .section-title { font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; display: block; }
-    .section-header .section-desc { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; display: block; }
+    .section-header .section-title { font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; display: block; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    .section-header .section-desc { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; display: block; }
 
     .resource-entry {
       padding: 0.9rem 0;
@@ -241,6 +246,7 @@
       text-decoration: none;
       transition: all 0.2s;
       border-bottom: 1px solid transparent;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.15);
     }
     .resource-entry .title-line .main-title:hover { color: #fff; border-bottom-color: rgba(255,216,160,0.3); }
     .resource-entry .title-line .main-title .external-icon { color: rgba(255,216,160,0.4); font-size: 0.7rem; margin-left: 5px; transition: all 0.2s; }
@@ -250,16 +256,16 @@
     .resource-entry .badge-line .badge {
       font-weight: 400;
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.6);
-      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.12);
       padding: 0.1rem 0.8rem;
       border-radius: 40px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .resource-entry .subtitle { display: block; color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 0.1rem; }
-    .resource-entry .desc { display: block; color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.1rem; }
+    .resource-entry .subtitle { display: block; color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 0.1rem; }
+    .resource-entry .desc { display: block; color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.1rem; }
 
     .hero-vatican {
       width: 100%;
@@ -541,7 +547,7 @@
       </div>
 
       <div class="text-center mt-10 fade-up">
-        <p class="text-white/60 text-sm max-w-xl mx-auto">
+        <p class="text-white/70 text-sm max-w-xl mx-auto">
           <span class="italic">"Always be prepared to make a defense to anyone who calls you to account for the hope that is in you."</span>
           <br />
           — 1 Peter 3:15
@@ -552,7 +558,7 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="bg-black/30 text-white/80 py-10 text-center text-sm backdrop-blur-sm relative z-10">
+  <footer class="bg-black/40 text-white/80 py-10 text-center text-sm backdrop-blur-sm relative z-10">
     <div class="max-w-6xl mx-auto px-5">
       <p class="font-semibold text-white">Jesus Youth KMC — Kottayam Medical College Campus Ministry</p>
       <p class="mt-2 text-amber-100">A Campus Ministry under the Jesus Youth Movement</p>
