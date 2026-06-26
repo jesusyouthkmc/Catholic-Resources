@@ -205,7 +205,7 @@
             padding-top: 0;
         }
 
-        /* Line 1: Sub-icon + Title (same line) */
+        /* Line 1: Sub-icon + Title (same line) - Title is a link */
         .resource-entry .title-line {
             display: block;
             margin-bottom: 0.1rem;
@@ -217,8 +217,25 @@
         }
         .resource-entry .title-line .main-title {
             font-weight: 700;
-            color: #fff;
             font-size: 1.05rem;
+            color: #FFD8A0;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+        .resource-entry .title-line .main-title:hover {
+            color: #fff;
+            border-bottom-color: rgba(255, 216, 160, 0.3);
+        }
+        .resource-entry .title-line .main-title .external-icon {
+            color: rgba(255, 216, 160, 0.4);
+            font-size: 0.7rem;
+            margin-left: 5px;
+            transition: all 0.2s;
+        }
+        .resource-entry .title-line .main-title:hover .external-icon {
+            color: #FFD8A0;
+            transform: translateX(2px);
         }
 
         /* Line 2: Badge */
@@ -253,35 +270,6 @@
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 0.1rem;
-        }
-
-        /* Line 5: Link */
-        .resource-entry .link-line {
-            display: block;
-            margin-top: 0.1rem;
-        }
-        .resource-entry .link-line a {
-            color: #FFB347;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-            border-bottom: 2px solid rgba(255, 179, 71, 0.2);
-            padding-bottom: 1px;
-        }
-        .resource-entry .link-line a:hover {
-            color: #FFD700;
-            border-bottom-color: #FFB347;
-        }
-        .resource-entry .link-line .link-icon {
-            color: rgba(255, 179, 71, 0.5);
-            font-size: 0.7rem;
-            margin-left: 5px;
-            transition: all 0.2s;
-        }
-        .resource-entry .link-line a:hover .link-icon {
-            color: #FFD700;
-            transform: translateX(3px);
         }
 
         .fade-up {
@@ -443,35 +431,41 @@
 
                 <div class="resource-entry">
                     <span class="title-line">
-                        <span class="sub-icon"><i class="fas fa-headphones"></i></span>
-                        <span class="main-title">The Bible in a Year (English)</span>
+                        <span class="sub-icon"><i class="fas fa-play"></i></span>
+                        <a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank" class="main-title">
+                            The Bible in a Year (English)
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">Starting Off</span></span>
                     <span class="subtitle">Ascension Presents with Fr. Mike Schmitz</span>
                     <span class="desc">A daily podcast that takes you through the entire Bible in 365 days.</span>
-                    <span class="link-line"><a href="https://youtube.com/playlist?list=PLeXS0cAkuTPqFMtZQ379qdEmcfxO1SvXc&si=tymdrm-IEYVHuZi_" target="_blank">Listen on YouTube <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
 
                 <div class="resource-entry">
                     <span class="title-line">
-                        <span class="sub-icon"><i class="fas fa-headphones"></i></span>
-                        <span class="main-title">The Bible in a Year (മലയാളം)</span>
+                        <span class="sub-icon"><i class="fas fa-play"></i></span>
+                        <a href="http://www.youtube.com/@biy-malayalam" target="_blank" class="main-title">
+                            The Bible in a Year (മലയാളം)
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">Starting Off</span></span>
                     <span class="subtitle">Fr. Daniel Poovannathil</span>
                     <span class="desc">The Bible in a Year in Malayalam, helping you grow in God's Word.</span>
-                    <span class="link-line"><a href="http://www.youtube.com/@biy-malayalam" target="_blank">Watch on YouTube <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
 
                 <div class="resource-entry">
                     <span class="title-line">
                         <span class="sub-icon"><i class="fas fa-book-open"></i></span>
-                        <span class="main-title">Agape Bible Study</span>
+                        <a href="https://www.agapebiblestudy.com" target="_blank" class="main-title">
+                            Agape Bible Study
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">In-Depth</span></span>
                     <span class="subtitle">Agape Catholic Bible Study</span>
                     <span class="desc">Comprehensive Catholic Bible studies with historical context, theology, and verse by verse analysis.</span>
-                    <span class="link-line"><a href="https://www.agapebiblestudy.com" target="_blank">Visit Agape Bible Study <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
             </div>
 
@@ -485,24 +479,28 @@
 
                 <div class="resource-entry">
                     <span class="title-line">
-                        <span class="sub-icon"><i class="fas fa-headphones"></i></span>
-                        <span class="main-title">The Catechism in a Year (English)</span>
+                        <span class="sub-icon"><i class="fas fa-play"></i></span>
+                        <a href="https://ascensionpress.com/pages/catechisminayear" target="_blank" class="main-title">
+                            The Catechism in a Year (English)
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">Starting Off</span></span>
                     <span class="subtitle">Ascension Presents with Fr. Mike Schmitz</span>
                     <span class="desc">A daily journey through the entire Catechism of the Catholic Church.</span>
-                    <span class="link-line"><a href="https://ascensionpress.com/pages/catechisminayear" target="_blank">Listen Now <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
 
                 <div class="resource-entry">
                     <span class="title-line">
                         <span class="sub-icon"><i class="fas fa-book"></i></span>
-                        <span class="main-title">Read the Catechism Online</span>
+                        <a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank" class="main-title">
+                            Read the Catechism Online
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">Full Text</span></span>
                     <span class="subtitle">USCCB</span>
                     <span class="desc">A well presented and easy to navigate online edition of the Catechism.</span>
-                    <span class="link-line"><a href="https://usccb.cld.bz/Catechism-of-the-Catholic-Church2/10/" target="_blank">Read the CCC <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
             </div>
 
@@ -517,23 +515,27 @@
                 <div class="resource-entry">
                     <span class="title-line">
                         <span class="sub-icon"><i class="fas fa-question-circle"></i></span>
-                        <span class="main-title">Got Questions?</span>
+                        <a href="https://www.catholic.com" target="_blank" class="main-title">
+                            Got Questions? — Catholic Answers
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">Apologetics</span></span>
                     <span class="subtitle">Catholic Answers</span>
                     <span class="desc">Answers to thousands of questions about Catholic beliefs, Scripture, Church history, morality, and apologetics.</span>
-                    <span class="link-line"><a href="https://www.catholic.com" target="_blank">Visit Catholic Answers <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
 
                 <div class="resource-entry">
                     <span class="title-line">
                         <span class="sub-icon"><i class="fas fa-scroll"></i></span>
-                        <span class="main-title">What Did the Early Christians Believe?</span>
+                        <a href="https://www.newadvent.org/fathers/" target="_blank" class="main-title">
+                            Writings of the Church Fathers
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">Historical</span></span>
                     <span class="subtitle">New Advent</span>
                     <span class="desc">A vast collection of writings from the earliest Christian centuries.</span>
-                    <span class="link-line"><a href="https://www.newadvent.org/fathers/" target="_blank">Read the Church Fathers <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
             </div>
 
@@ -548,34 +550,40 @@
                 <div class="resource-entry">
                     <span class="title-line">
                         <span class="sub-icon"><i class="fas fa-globe-americas"></i></span>
-                        <span class="main-title">Catholic News Agency</span>
+                        <a href="https://www.catholicnewsagency.com" target="_blank" class="main-title">
+                            Catholic News Agency
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">News</span></span>
                     <span class="subtitle">CNA</span>
                     <span class="desc">Trusted Catholic journalism from around the world.</span>
-                    <span class="link-line"><a href="https://www.catholicnewsagency.com" target="_blank">Visit CNA <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
 
                 <div class="resource-entry">
                     <span class="title-line">
                         <span class="sub-icon"><i class="fas fa-globe"></i></span>
-                        <span class="main-title">National Catholic Register</span>
+                        <a href="https://www.ncregister.com" target="_blank" class="main-title">
+                            National Catholic Register
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">News</span></span>
                     <span class="subtitle">NCRegister</span>
                     <span class="desc">In-depth reporting and commentary on the life of the Church.</span>
-                    <span class="link-line"><a href="https://www.ncregister.com" target="_blank">Visit NCR <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
 
                 <div class="resource-entry">
                     <span class="title-line">
                         <span class="sub-icon"><i class="fas fa-vatican"></i></span>
-                        <span class="main-title">Vatican News</span>
+                        <a href="https://www.vaticannews.va" target="_blank" class="main-title">
+                            Vatican News
+                            <i class="fas fa-external-link-alt external-icon"></i>
+                        </a>
                     </span>
                     <span class="badge-line"><span class="badge">Official</span></span>
                     <span class="subtitle">Holy See</span>
                     <span class="desc">Official news from the Holy See.</span>
-                    <span class="link-line"><a href="https://www.vaticannews.va" target="_blank">Visit Vatican News <i class="fas fa-external-link-alt link-icon"></i></a></span>
                 </div>
             </div>
 
