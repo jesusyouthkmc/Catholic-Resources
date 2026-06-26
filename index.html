@@ -44,7 +44,24 @@
     @media (min-width: 1024px) { .bg-logo { right: -200px; width: 40%; opacity: 0.05; } }
     .content-wrapper { position: relative; z-index: 1; }
 
-    /* glass header */
+    /* custom icon styles */
+    .custom-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+    }
+    .custom-icon-sm {
+      width: 1rem;
+      height: 1rem;
+      object-fit: contain;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 6px;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+    }
+
     .curved-glass-header {
       background: rgba(255, 140, 66, 0.88);
       backdrop-filter: blur(14px) saturate(180%);
@@ -55,7 +72,6 @@
       z-index: 100;
     }
 
-    /* sidebar */
     .sidebar-menu {
       position: fixed;
       top: 0;
@@ -118,7 +134,6 @@
     }
     .menu-overlay.active { display: block; }
 
-    /* glass panels */
     .glass-panel {
       background: rgba(255,255,255,0.12);
       backdrop-filter: blur(16px) saturate(180%);
@@ -141,7 +156,11 @@
       gap: 0.1rem;
       margin-bottom: 1.5rem;
     }
-    .section-header .main-icon { font-size: 2.2rem; color: #fff; display: block; }
+    .section-header .main-icon { 
+      font-size: 2.2rem; 
+      color: #fff; 
+      display: block; 
+    }
     .section-header .section-title { font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; display: block; }
     .section-header .section-desc { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; display: block; }
 
@@ -343,10 +362,12 @@
         </div>
       </div>
 
-      <!-- CATECHISM -->
+      <!-- CATECHISM - REPLACED ICON WITH CUSTOM PNG -->
       <div class="glass-panel fade-up mb-8">
         <div class="section-header">
-          <span class="main-icon"><i class="fas fa-church"></i></span>
+          <span class="main-icon">
+            <img src="catechism-icon.png" alt="Catechism" class="custom-icon" />
+          </span>
           <span class="section-title">Catechism of the Catholic Church</span>
           <span class="section-desc">The faith, handed on</span>
         </div>
@@ -413,10 +434,12 @@
         </div>
       </div>
 
-      <!-- CATHOLIC NEWS -->
+      <!-- CATHOLIC NEWS - REPLACED VATICAN ICON WITH CUSTOM PNG -->
       <div class="glass-panel fade-up mb-8">
         <div class="section-header">
-          <span class="main-icon"><i class="fas fa-newspaper"></i></span>
+          <span class="main-icon">
+            <img src="vatican-news-icon.png" alt="Vatican News" class="custom-icon" />
+          </span>
           <span class="section-title">Catholic News</span>
           <span class="section-desc">Stay informed, stay connected</span>
         </div>
@@ -449,7 +472,9 @@
 
         <div class="resource-entry">
           <span class="title-line">
-            <span class="sub-icon"><i class="fas fa-vatican"></i></span>
+            <span class="sub-icon">
+              <img src="vatican-news-icon.png" alt="Vatican" class="custom-icon-sm" />
+            </span>
             <a href="https://www.vaticannews.va" target="_blank" class="main-title">
               Vatican News
               <i class="fas fa-external-link-alt external-icon"></i>
@@ -509,7 +534,6 @@
       if (overlay) overlay.addEventListener('click', closeMenuFn);
       document.querySelectorAll('.sidebar-menu nav a').forEach(l => l.addEventListener('click', closeMenuFn));
 
-      // fade-up observer
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
